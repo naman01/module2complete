@@ -115,8 +115,10 @@ function uploadJson(){
       //  messageListRef.child("leveldesig").set(levels[t].designation);
     }
     for(t = 0;t<k;t++){
-      var messageListRef = firebase.database().ref(nameorg+'/leveldesig');
-      messageListRef.child(t).set(levels[t].designation);
+      var messageListRef = firebase.database().ref(nameorg+'/leveldesig/Level '+ (t+1));
+      messageListRef.child('designation').set(levels[t].designation);
+      messageListRef.child('noofpeople').set(levels[t].number);
+      messageListRef.child('counter').set('null');
     }
     var database = firebase.database();
     console.log(database);
